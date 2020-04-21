@@ -1,7 +1,10 @@
 import discord
+import json
+
+token = json.load(open('auth.json', 'r'))['token']
 
 class MyClient(discord.Client):
-    async def on_ready(self):
+    async def on_ready(self, message):
         print('Logged on as', self.user)
 
     async def on_message(self, message):
@@ -13,4 +16,4 @@ class MyClient(discord.Client):
             await message.channel.send('pong')
 
 client = MyClient()
-client.run('token')
+client.run(token)
