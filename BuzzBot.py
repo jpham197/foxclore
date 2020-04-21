@@ -1,6 +1,8 @@
 import discord
 import json
 
+import Counting as count
+
 token = json.load(open('auth.json', 'r'))['token']
 
 class MyClient(discord.Client):
@@ -13,7 +15,9 @@ class MyClient(discord.Client):
             return
 
         if message.content == 'ping':
-            await message.channel.send('dick')
+            await message.channel.send('pong')
+
+        await count.double_count(message)
 
 client = MyClient()
 client.run(token)
