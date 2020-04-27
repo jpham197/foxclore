@@ -10,16 +10,22 @@ async def counting(message):
             # Checks to see if message is an int
             if is_number(message):
                 if in_order(message, m):
-                    last_num = int(message.content)
-                    await message.channel.send(last_num + 1)
+                    await double_count(message)
                 else:
                     await message.delete()
 
             else: 
                 await message.delete()
 
-            
-        
+async def double_count(message):
+    """
+    Make buzz-bot count one more time after user counts
+
+    :param message: the discord message the user sent
+    :returns: no return value
+    """
+    last_num = int(message.content)
+    await message.channel.send(last_num + 1)
 
 def is_number(message):
     """
