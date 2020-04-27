@@ -13,9 +13,6 @@ async def first_time(self):
     Adds all users of servers that the bot is in to the database
     :param self: this is our bot
     """
-    # Shows that the login worked
-    print('Logged on as', self.user)
-
     # x is a list created by the method get_all_members()
     x = self.get_all_members()
     for member in x:

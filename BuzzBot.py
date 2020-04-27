@@ -11,15 +11,16 @@ class MyClient(discord.Client):
     """ Our main discord bot class"""
     async def on_ready(self):
         """Stuff that happens when the bot is turned on"""
-        updateUsers.first_time(self)
+        print("buzz-bot is on")
+        # await updateUsers.first_time(self)
     
     async def on_member_join(self,member):
         """Stuff that happens when there is a new member"""
-        updateUsers.new_member(member)
+        await updateUsers.new_member(member)
     
     async def on_member_remove(self, member):
         """Stuff that happens when a member leaves"""
-        updateUsers.remove_member(member)
+        await updateUsers.remove_member(member)
 
     async def on_message(self, message):
         """Stuff that happens when there is a new message"""
