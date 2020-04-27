@@ -1,11 +1,9 @@
-"""
-This class handles the updating of users with the database
-"""
+"""This class handles the updating of users with the database"""
 from pymongo import MongoClient
 
 # Connecting to database and declaring the collection
 cluster = MongoClient("mongodb+srv://buzzbot:neJPIzxDGax66NqI@buzzbot-"
-                      + "gesgl.gcp.mongodb.net/test?retryWrites=true&w=majority")
+                      +"gesgl.gcp.mongodb.net/test?retryWrites=true&w=majority")
 db = cluster["discord"]
 collection = db["users"]
 
@@ -21,6 +19,7 @@ async def first_time(self):
         post = {
             "_id": member.id,
             "name": member.name,
+            "points": 0,
             "joined at": member.joined_at,
             "server": member.guild.name,
             "isBot": member.bot
@@ -36,6 +35,7 @@ async def new_member(member):
     post = {
         "_id": member.id,
         "name": member.name,
+        "points": 0,
         "joined at": member.joined_at,
         "server": member.guild.name,
         "isBot": member.bot
@@ -58,4 +58,15 @@ async def remove_channel(guild):
     :param guild: server that removed the bot
     """
     leaving_server = {"server": guild.name}
-    collection.delete_one(leaving_server)
+    collection.delete_many(leaving_server)
+
+
+async def update_member(member):
+    """
+    Updates member name or stats such as points
+    :param member: the member that needs updating
+    """
+    updating_member = {"_id": member.id}
+    # need to figure out point logic
+    new_values = {"$set": {"name": member.name, "points": 0}}
+    collection.update_many(updating_member, new_values)

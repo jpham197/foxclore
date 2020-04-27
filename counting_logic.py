@@ -8,7 +8,7 @@ async def counting(message):
     """
     # Check to see if message is in counting-channel
     try:
-        if message.channel.name == 'test-buzz':
+        if message.channel.name == 'test':
             if message.author.name != "buzz-bot":
                 last_message = await message.channel.history().get(author__name='buzz-bot')
                 if is_number(message):

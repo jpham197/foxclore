@@ -13,6 +13,7 @@ class MyClient(discord.Client):
     async def on_ready(self):
         """Stuff that happens when the bot is turned on"""
         print("buzz-bot is on")
+        await update_users.first_time(self)
 
     async def on_member_join(self, member):
         """Stuff that happens when there is a new member"""
@@ -33,6 +34,9 @@ class MyClient(discord.Client):
     async def on_guild_remove(self, guild):
         """Stuff that happens when bot is removed from a server"""
         await update_users.remove_channel(guild)
+
+    async def on_user_update(self, after):
+        await update_users.update_member(after)
 
 
 client = MyClient()
