@@ -4,19 +4,22 @@ async def counting(message):
     :param message: this is any message that was sent in the counting channel
     """
     # Check to see if message is in counting-channel
-    if message.channel.name == 'test-buzz':
-        if message.author.name != "buzz-bot":
-            m = await message.channel.history().get(author__name='buzz-bot')
-            # Checks to see if message is an int
-            if is_number(message):
-                if in_order(message, m):
-                    last_num = int(message.content)
-                    await message.channel.send(last_num + 1)
-                else:
+    try:
+        message.channel.name
+        if message.channel.name == 'test-buzz':
+            if message.author.name != "buzz-bot":
+                m = await message.channel.history().get(author__name='buzz-bot')
+                if is_number(message):
+                    if in_order(message, m):
+                        last_num = int(message.content)
+                        await message.channel.send(last_num + 1)
+                    else:
+                        await message.author.send("stop it")
+                        await message.delete()
+                else: 
                     await message.delete()
-
-            else: 
-                await message.delete()
+    except AttributeError:
+        pass
 
             
         
@@ -34,6 +37,12 @@ def is_number(message):
         return False
 
 def in_order(message, last_message):
+    """
+    Checks if the message is the correct number
+    :param message: the message that is sent by user
+    :oaram last_message: the message sent by the bot
+    :returns: bool based on if the number is the next number in the sequence
+    """
     if int(message.content) == int(last_message.content) + 1:
         return True
     else:

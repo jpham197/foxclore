@@ -26,25 +26,34 @@ async def first_time(self):
         collection.insert_one(post)
 
 async def new_member(member):
-        """
-        Adds newly joined memebers while bot is on to the database
-        :param member: this is the memeber that has just joined
-        """
-        post = {
-            "_id": member.id, 
-            "name": member.name,
-            "joined at": member.joined_at,
-            "server": member.guild.name, 
-            "isBot": member.bot
-            }
-        collection.insert_one(post)
+    """
+    Adds newly joined memebers while bot is on to the database
+    :param member: this is the memeber that has just joined
+    """
+    post = {
+        "_id": member.id, 
+        "name": member.name,
+        "joined at": member.joined_at,
+        "server": member.guild.name, 
+        "isBot": member.bot
+        }
+    collection.insert_one(post)
 
 async def remove_member(member):
-        """
-        Removes member from database when they leave the server
-        :param member: member that left
-        """
-        leaving_member = { "_id": member.id}
-        collection.delete_one(leaving_member)
+    """
+    Removes member from database when they leave the server
+    :param member: member that left
+    """
+    leaving_member = { "_id": member.id}
+    collection.delete_one(leaving_member)
+
+async def remove_channel(guild):
+    """
+    Removes member from database when they leave the server
+    :param member: member that left
+    """
+    leaving_server = { "server": guild.name}
+    collection.delete_one(leaving_server)
+
 
 
