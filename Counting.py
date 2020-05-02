@@ -1,3 +1,7 @@
+"""
+Module that holds all counting enforcement logic
+"""
+
 import random
 
 async def counting(message):
@@ -6,8 +10,8 @@ async def counting(message):
     :param message: this is any message that was sent in the counting channel
     """
     # Check to see if message is in counting-channel
-    if message.channel.name == 'test-buzz':
-        if message.author.name != "buzz-bot":
+    if message.channel.name == 'test-count':
+        if message.author.name != "foxclore-bot":
             last_message = await message.channel.history(limit=2).flatten()
 
             if is_number(message):
