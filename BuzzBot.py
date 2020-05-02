@@ -12,7 +12,7 @@ class MyClient(discord.Client):
     async def on_ready(self):
         print("buzz-bot is on")
         # await updateUsers.first_time(self)
-    
+
     async def on_member_join(self,member):
         await updateUsers.new_member(member)
     
@@ -23,7 +23,7 @@ class MyClient(discord.Client):
         await count.counting(message)
 
         if (message.content.split()[0] == "!event"):
-            await event.create(message)
+            await event.events(message)
 
 client = MyClient()
 client.run(token)
