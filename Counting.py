@@ -6,18 +6,19 @@ async def counting(message):
     :param message: this is any message that was sent in the counting channel
     """
     # Check to see if message is in counting-channel
-    if message.channel.name == 'test-buzz':
-        if message.author.name != "buzz-bot":
+    if message.channel.name == 'test-count':
+        if message.author.name != "foxclore-bot":
             last_message = await message.channel.history(limit=2).flatten()
+            if is_sameMember(message, last_message[1]):
+                if is_number(message):
+                    if in_order(message, last_message[1]):
+                        await double_count(message)
+                    else:
+                        await message.delete()
 
-            if is_number(message):
-                if in_order(message, last_message[1]):
-                    await double_count(message)
-                else:
+                else: 
                     await message.delete()
-
-            else: 
-                await message.delete()
+            else: await message.delete()        
 
 async def double_count(message):
     """
@@ -32,6 +33,13 @@ async def double_count(message):
     if random.randint(1, 100) < chance:
         last_num = int(message.content)
         await message.channel.send(last_num + 1)
+
+def is_sameMember(message, last_message):
+    if (int(message.author.id) == int(last_message.author.id)):
+        return False
+    else:
+        return True
+            
 
 def is_number(message):
     """
