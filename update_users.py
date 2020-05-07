@@ -76,6 +76,7 @@ async def update_points(member, points):
     """
     Updates points for a user
     :param member: the member needing the update in points
+    :param points: the points being updated
     """
     prev_points = collection.find({"_id": member.id}, {"points": 1})
     points = prev_points + points
