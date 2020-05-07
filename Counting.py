@@ -1,4 +1,5 @@
 import random
+import update_users
 
 async def counting(message):
     """

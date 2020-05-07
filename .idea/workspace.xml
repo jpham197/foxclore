@@ -30,14 +30,12 @@
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
         <item name="GROUP_NODE:feature" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:origin/feature/point_storage_and_update" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/feature/doubleCount" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3e4a0d7c-4352-4d38-b16d-4159d09e390c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-    </list>
+    <list default="true" id="3e4a0d7c-4352-4d38-b16d-4159d09e390c" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,7 +44,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/eventCreation" />
+        <entry key="$PROJECT_DIR$" value="feature/point_storage_and_update" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -58,6 +56,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mongo" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -84,6 +83,7 @@
       <workItem from="1588030523709" duration="763000" />
       <workItem from="1588031354179" duration="118000" />
       <workItem from="1588607176299" duration="181000" />
+      <workItem from="1588772591140" duration="2955000" />
     </task>
     <servers />
   </component>
@@ -101,7 +101,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/feature/point_storage_and_update" />
+                        <option value="origin/feature/doubleCount" />
                       </list>
                     </value>
                   </entry>
@@ -115,10 +115,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588029200436">
+    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588773573565">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1588029200436" />
+    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1588773573565" />
     <state x="507" y="162" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1588027107233">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -151,5 +151,9 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="98" y="76" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1588030090272" />
+    <state x="468" y="170" key="git4idea.branch.GitSmartOperationDialog" timestamp="1588772683404">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="468" y="170" key="git4idea.branch.GitSmartOperationDialog/0.0.1440.900@0.0.1440.900" timestamp="1588772683404" />
   </component>
 </project>
